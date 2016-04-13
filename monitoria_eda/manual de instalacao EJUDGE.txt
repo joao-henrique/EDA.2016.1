@@ -1,0 +1,38 @@
+Primeiro passo só é para casos que seja necessário instalar nas máquinas da faculdade.
+
+1) Apagar eventuais pastas do ejudge
+
+	rm -rf /home/alunos/ejudge
+	rm -rf /home/alunos/bin
+
+2) Copiar o ejudge1.1.tar.gz para tmp
+
+	cd tmp
+	ls -l
+	cp /home/Downloads/ejudge1.1.tar.gz /tmp
+
+3) Descompactar
+
+	cd /tmp
+	tar xvfz ejudge1.1.tar.gz
+
+4) Instalar
+
+	ls -l
+	cd /tmp/ejudge
+	chmod +x *
+	ls -l
+	./install.sh
+
+5)
+	cd ~
+	pwd
+	nano -w .bashrc ou .bash rc (não me lembro)
+
+	PATH=$PATH:/home/bin ou PATH=$PATH:/home/alunos/bin
+
+6)
+	echo $PATH
+	exit
+
+	ejudge

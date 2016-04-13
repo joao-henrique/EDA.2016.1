@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <string.h>
 
-//Lista de coisas que devo ter atenção:
-// - Criação da struct
-// - Passagem da struct por referência
-// - Método de leitura de string********(vc perdeu muito tempo com isso )
-
+/*Lista de coisas que devo ter atenção:
+ - Criação da struct
+ - Passagem da struct por referência
+ - Método de leitura de string********(vc perdeu muito tempo com isso )
+*/
 
 struct Aluno{
 //  char nome[50];
@@ -90,11 +90,10 @@ Aluno* remover(Aluno* lista, int mat){
     return lista;
   }
 
-  if (ant == NULL) {
+  if (ant == NULL){
       lista = aux->proximo;
   }else{
       ant->proximo = aux->proximo;
-
   }
   free(aux);
   return lista;
@@ -103,29 +102,14 @@ Aluno* remover(Aluno* lista, int mat){
 
 int main(int argc, char const *argv[]) {
 
-    Aluno* l;
-    l = (Aluno*) malloc( sizeof(Aluno));
-    // lista =  insere(lista, 12);
-    // lista =  insere(lista, 12);
-    // lista = insere(lista, 12);
-    // exibir_lista(lista);
+     Aluno* l;
+     l = (Aluno*) malloc( sizeof(Aluno));
 
-
-
-
- l = insere(l, 23); /* insere na lista o elemento 23 */
- l = insere(l, 45); /* insere na lista o elemento 45 */
- l = insere(l, 56); /* insere na lista o elemento 56 */
- l = insere(l, 78); /* insere na lista o elemento 78 */
- exibir_lista(l); /* imprimirá: 78 56 45 23 */
- l = remover(l, 78);
- exibir_lista(l); /* imprimirá: 56 45 23 */
- l = remover(l, 45);
- exibir_lista(l);
-
-
-
-
+     l = insere(l, 23); /* insere na lista o elemento 23 */
+     l = insere(l, 45); /* insere na lista o elemento 45 */
+     l = insere(l, 56); /* insere na lista o elemento 56 */
+     l = insere(l, 78); /* insere na lista o elemento 78 */
+     exibir_lista(l); /* imprimirá: 78 56 45 23 */
 
   return 0;
 }

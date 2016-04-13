@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+	int T;
+	double X;
+	
+	scanf("%lf %d", &X, &T);
+	
+	if(T <= 100)
+		printf("VALOR DA CONTA = R$ %.2lf\n", X);
+	else {
+		T -= 100;
+		X += T*0.15;
+		printf("VALOR DA CONTA = R$ %.2lf\n", X);
+	}
+
+return 0;
+}

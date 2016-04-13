@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct _Arv {
+	int info;
+	struct _Arv *esq;
+	struct _Arv *dir;
+} Arv;
+
+Arv* inserir(Arv *head, int num2) {
+	if(head == NULL)
+
+	return head;
+}
+
+int main(){
+	int num, num2, i;
+	Arv *head;
+	
+	head = NULL;
+	
+	scanf("%d", &num);
+	for(i=0; i<num; i++) {
+		scanf("%d", &num2)
+		head = inserir(head, num2);
+	}
+return 0;
+}

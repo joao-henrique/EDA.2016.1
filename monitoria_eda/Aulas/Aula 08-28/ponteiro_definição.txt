@@ -1,0 +1,12 @@
+Quando um ponteiro criado:
+	int *int;
+
+
+	Ao usar:
+		scanf("%d", n); Você mexe com o ENDEREÇO de que o ponteiro n aponta.
+
+	Ao usar:
+		scanf("%d", *n); Você mexe com o VALOR de que o ponteiro n aponta.
+
+	Ao usar:
+		scanf("%d", &n); Você mexe com o ENDEREÇO DO PONTEIRO n, onde nele é guardado outro enderesso que ele deverá apontar.

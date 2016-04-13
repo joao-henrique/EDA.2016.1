@@ -1,0 +1,43 @@
+//Leia o primeiro 5 naturais e coloque-os numa lista encadeada com inserção no inicio.
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 5
+
+typedef struct _no {
+		int n;
+		struct _no *prox;
+} no;
+
+int main(void) {
+
+	no *header;
+	no *p;
+	int i;
+	
+	header = NULL;
+	i = 0;
+	p = malloc(sizeof(no));
+	p -> info = i;
+	p -> prox = header;
+	header = p;
+	i++;
+	p = malloc(sizeof(no));
+	p -> = i;
+	p -> prox = header;
+	header = p;
+	i++;
+	p = mallocsizeof(no));
+	p -> info = i;
+	p -> prox = header;
+	header = p;
+	
+	p = header;
+	// Laço de impressão
+	while((p != NULL) {
+		printf("%d", p -> info);
+		p = p -> prox;
+	}
+	
+return 0;
+}

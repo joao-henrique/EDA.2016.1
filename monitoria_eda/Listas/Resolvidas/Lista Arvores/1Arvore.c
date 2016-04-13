@@ -1,0 +1,125 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct _Arv {
+	int info;
+	struct _Arv *esq;
+	struct _Arv *dir;
+} Arv;
+
+Arv* arv_criavazia(void) {
+	return NULL;	
+}
+
+Arv* arv_insere(Arv* raiz, Arv* no) {
+	Arv *aux;
+	
+	if(!arv_vazia(raiz)) {
+		if(no->info%2 == 0 && !arv_vazia(raiz->esq))
+			aux = arv_insere(raiz->esq, no);
+		else if(no->info%2 == 0 && arv_vazia(raiz->esq)) {
+			raiz -> esq = no;
+			return raiz;
+		}
+		
+		if(no->info%2 == 1 && !arv_vazia(raiz->dir))
+			aux = arv_insere(raiz->dir, no);
+		else if(no->info%2 == 1 && arv_vazia(raiz->dir)){
+			raiz -> dir = no;
+			return raiz;
+		}
+	}
+	else {
+		raiz = no;
+		return raiz;
+	}
+	return raiz;
+}
+
+Arv* arv_libera(Arv* a) {
+	if(!arv_vazia(a)) {
+		arv_libera(a->esq);
+		arv_libera(a->dir);
+		free(a);
+	}
+	return NULL;
+}
+
+int arv_vazia(Arv* a) {
+	return a == NULL;
+}
+
+int arv_pertence(Arv* a, int info) {
+	if(arv_vazia(a))
+		return 0;
+	else
+		return a->info == info || arv_pertence(a->esq, info) || arv_pertence(a->dir, info);
+}
+
+void arv_imprime(Arv* a){
+	if(!arv_vazia(a)) {
+		printf("%d\n", a->info);
+		printf("esquerdo -> ");
+		arv_imprime(a->esq);
+		printf("nao, direito ->");
+		arv_imprime(a->dir);
+	}
+}
+
+void arv_preordem(Arv* a) {
+	if(!arv_vazia(a))	{
+		arv_imprime(a);
+		arv_preordem(a->esq);
+		arv_preordem(a->dir);
+	}
+}
+
+void arv_inordem(Arv *a) {
+	if(!arv_vazia(a)) {
+		arv_inordem(a->esq);
+		arv_imprime(a);
+		arv_inordem(a->dir);
+	}
+}
+
+void arv_posordem(Arv* 	a) {
+	if(!arv_vazia(a)) {
+		arv_posordem(a->esq);
+		arv_posordem(a->dir);
+		arv_imprime(a);
+	}
+}
+
+int arv_altura(Arv *raiz) {
+	if(raiz == NULL)
+		return -1;
+	else {
+		int fe = arv_altura(raiz->esq);
+		int fd = arv_altura(raiz->dir);
+		if(fe<fd)
+			return fd + 1;
+		else
+			return fe + 1;
+	}
+}
+
+int main(){
+	Arv* raiz;
+	int quant, num, i;
+	
+	scanf("%d", &quant);
+	
+	i = 0;
+	while(i < quant) {
+		Arv* no = (Arv*) malloc(sizeof(no));
+		no -> esq = NULL;
+		no -> dir = NULL;
+		scanf("%d", &num);
+		no -> info = num;
+		raiz = arv_insere(raiz, no);
+		i++;
+	}
+	arv_imprime(raiz);	
+	printf("\nAltura da Arvore: %d\n", arv_altura(raiz));	
+return 0;
+}
